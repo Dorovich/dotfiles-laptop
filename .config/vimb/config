@@ -9,7 +9,7 @@ set home-page=https://dorovich.github.io/c
 
 # UI {{{
 set input-autohide=true
-set status-bar=true
+set status-bar=false
 set dark-mode=true
 set hint-keys=asdfghjklei
 set smooth-scrolling=true
@@ -40,20 +40,22 @@ cnoremap jk <Esc>
 cnoremap <C-j> <CR>
 imap <C-d> <Esc>
 
-nnoremap <C-d> :sh! st -e nnn ~/Descargas<CR>
-nnoremap <C-e> :sh! st -e nvim ~/.config/vimb/config<CR>
-nnoremap <C-m> :sh! mpv $VIMB_URI<CR>
-#nnoremap <C-b> :e! ytblock();<CR>
-#nnoremap <C-c> :sh! ~/.local/bin/vimb-clear-history<CR>
-#nnoremap <C-a> :sh! ~/.local/bin/vimb-adblock-update<CR>
+nnoremap xd :sh! st -e nnn ~/Descargas<CR>
+nnoremap xe :sh! st -e nvim ~/.config/vimb/config<CR>
+nnoremap xc :sh! ~/.local/bin/vimb-clear-history<CR>
+nnoremap xu :sh! ~/.local/bin/vimb-adblock-update<CR>
+nnoremap xm :sh! mpv $VIMB_URI<CR>
+nnoremap xb :e! ytblock();<CR>
 # }}}
 
 # Shortcuts {{{
-shortcut-default ddg
+shortcut-default ddl
 
 shortcut-add ddg=https://duckduckgo.com/?q=$0
+shortcut-add ddl=https://lite.duckduckgo.com/lite/?q=$0
 shortcut-add ggl=https://encrypted.google.com/search?q=$0
 shortcut-add sx=https://searx.tiekoetter.com/search?q=$0
+shortcut-add ff=http://www.frogfind.com/?q=$0
 shortcut-add yt=https://www.youtube.com/results?search_query=$0
 shortcut-add aw=https://wiki.archlinux.org/?search=$0
 shortcut-add rd=https://www.reddit.com/r/$0
@@ -84,6 +86,7 @@ set images=true
 set scripts=true
 set webgl=true
 set geolocation=never
+set user-scripts=true
 set accelerated-2d-canvas=ondemand
 set history-max-items=50
 set webinspector=true
@@ -112,7 +115,7 @@ set completion-selected-css=color:#191724;background-color:#eb6f92;font:12pt mon
 set input-css=color:#e0def4;background-color:#191724;font:12pt mononoki;
 set input-error-css=color:#e0def4;background-color:#191724;font:12pt mononoki;
 set status-css=color:#6f6c7c;background-color:#191724;font:12pt mononoki;
-set status-ssl-css=color:#6e6a86;background-color:#191724;font:11pt mononoki;
+set status-ssl-css=color:#6e6a86;background-color:#191724;font:12pt mononoki;
 set status-ssl-invalid-css=color:#e0def4;background-color:#191724;font:12pt mononoki;
 # }}}
 
@@ -120,6 +123,11 @@ set status-ssl-invalid-css=color:#e0def4;background-color:#191724;font:12pt mono
 aug Downloads
     au DownloadFinished * sh notify-send 'Download finished!'
     au DownloadFailed * sh notify-send 'Could not download files.'
+aug end
+
+aug Styles
+    au LoadCommitted * set stylesheet=false
+    au LoadCommitted http{s,}://lite.duckduckgo.com/* set stylesheet=true
 aug end
 
 aug YtBlock
