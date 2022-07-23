@@ -128,6 +128,8 @@ aug end
 aug Styles
     au LoadCommitted * set stylesheet=false
     au LoadCommitted http{s,}://lite.duckduckgo.com/* set stylesheet=true
+    au LoadCommitted http{s,}://fanglingsu.github.io/* set stylesheet=true
+    au LoadCommitted http{s,}://www.frogfind.com/* set stylesheet=true
 aug end
 
 aug YtBlock
