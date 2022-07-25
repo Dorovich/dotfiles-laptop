@@ -9,7 +9,7 @@ set home-page=https://dorovich.github.io/c
 
 # UI {{{
 set input-autohide=true
-set status-bar=false
+set status-bar=true
 set dark-mode=true
 set hint-keys=asdfghjklei
 set smooth-scrolling=true
@@ -37,6 +37,7 @@ nnoremap b :open !
 nnoremap B :tabopen !
 nnoremap c <Esc>
 cnoremap jk <Esc>
+cnoremap <C-c> <Esc>
 cnoremap <C-j> <CR>
 imap <C-d> <Esc>
 
@@ -130,7 +131,7 @@ aug Styles
     au LoadCommitted * set stylesheet=false
     au LoadCommitted http{s,}://lite.duckduckgo.com/* set stylesheet=true
     au LoadCommitted http{s,}://fanglingsu.github.io/* set stylesheet=true
-    au LoadCommitted http{s,}://www.frogfind.com/* set stylesheet=true
+    au LoadCommitted http{s,}://frogfind.com/* set stylesheet=true
 aug end
 
 aug YtBlock
