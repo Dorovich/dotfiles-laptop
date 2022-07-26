@@ -12,6 +12,8 @@ export HISTFILE=~/.zsh_history
 export BROWSER=vimb
 #export HTTP_PROXY=127.0.0.1:8118
 export HTTP_PROXY=
+export JavaScriptCoreUseJIT="0"
+export WEBKIT_DISABLE_COMPOSITING_MODE=1
 
 export NNN_PLUG='d:dragdrop;i:imgur;n:nuke;p:preview-tabbed'
 export NNN_FIFO='/tmp/nnn.fifo'

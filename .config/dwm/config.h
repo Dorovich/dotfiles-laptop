@@ -39,7 +39,6 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "Xviewer",  NULL,       NULL,       0,            1,           -1 },
         { "mpv",      NULL,       NULL,       0,            1,           -1 },
 };
@@ -84,7 +83,7 @@ static const char *dmenucmd[]  = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont
 static const char *termcmd[]   = { "st", NULL };
 static const char *launchcmd[] = { "rofi", "-show", "drun", NULL };
 static const char *filescmd[]  = { "st", "-e", "zsh", "-ilc", "nnn", NULL };
-static const char *browsrcmd[] = { "qutebrowser.sh", NULL };
+static const char *browsrcmd[] = { "firefox", NULL };
 static const char *vimbcmd[]   = { "tabbed", "-c", "vimb", "-e", NULL };
 static const char *lockcmd[]   = { "slock", NULL };
 

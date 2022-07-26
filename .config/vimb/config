@@ -12,6 +12,7 @@ set input-autohide=true
 set status-bar=true
 set dark-mode=true
 set hint-keys=asdfghjklei
+set hint-keys-same-length=true
 set smooth-scrolling=true
 set default-zoom=100
 set incsearch=true
@@ -36,9 +37,9 @@ nnoremap D :quit!<CR>
 nnoremap b :open !
 nnoremap B :tabopen !
 nnoremap c <Esc>
-cnoremap jk <Esc>
+#cnoremap jk <Esc>
 cnoremap <C-c> <Esc>
-cnoremap <C-j> <CR>
+cnoremap <C-d> <Esc>
 imap <C-d> <Esc>
 
 nnoremap xd :sh! st -e nnn ~/Descargas<CR>
@@ -47,6 +48,7 @@ nnoremap xc :sh! ~/.local/bin/vimb-clear-history<CR>
 nnoremap xu :sh! ~/.local/bin/vimb-adblock-update<CR>
 nnoremap xm :sh! mpv $VIMB_URI<CR>
 nnoremap xb :e! ytblock();<CR>
+nnoremap xt Y:tabopen trad <C-r>"<CR>
 # }}}
 
 # Shortcuts {{{
