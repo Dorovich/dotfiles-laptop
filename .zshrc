@@ -10,15 +10,13 @@ export HISTSIZE=1000
 export SAVEHIST=1000
 export HISTFILE=~/.zsh_history
 export BROWSER=vimb
-#export HTTP_PROXY=127.0.0.1:8118
-export HTTP_PROXY=
 export JavaScriptCoreUseJIT="0"
 export WEBKIT_DISABLE_COMPOSITING_MODE=1
 
 export NNN_PLUG='d:dragdrop;i:imgur;n:nuke;p:preview-tabbed'
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_OPENER='/home/ness/.config/nnn/plugins/nuke'
-export NNN_BMS='d:/home/ness/Descargas'
+export NNN_BMS='d:/home/ness/Descargas;c:/home/ness/.config;p:/home/ness/proyectos'
 export NNN_COLORS='#01040302;1432'
 export NNN_FCOLORS='c1e2040a006033f7c6d6ab01'
 export NNN_TMPFILE='/tmp/.lastd'
