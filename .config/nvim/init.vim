@@ -62,9 +62,7 @@ nnoremap <silent> <Leader><S-q> :q!<CR>
 nnoremap <S-h> <Home>
 nnoremap <S-l> <End>
 imap jk <Esc>l
-imap kj <Esc>l
 cmap jk <Esc>
-cmap kj <Esc>
 vmap q <Esc>
 nnoremap <silent> <TAB> :bnext<CR>
 nnoremap <silent> <S-TAB> :bprevious<CR>

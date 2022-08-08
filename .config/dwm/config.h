@@ -82,7 +82,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[]  = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_main1, "-sf", col_gray1, NULL };
 static const char *termcmd[]   = { "st", NULL };
 static const char *launchcmd[] = { "rofi", "-show", "drun", NULL };
-static const char *filescmd[]  = { "st", "-e", "zsh", "-ilc", "nnn", NULL };
+static const char *filescmd[]  = { "pcmanfm", NULL };
+static const char *nnncmd[]    = { "st", "-e", "zsh", "-ilc", "nnn", NULL };
 static const char *browsrcmd[] = { "firefox", NULL };
 static const char *vimbcmd[]   = { "tabbed", "-c", "vimb", "-e", NULL };
 static const char *lockcmd[]   = { "slock", NULL };
@@ -118,6 +119,7 @@ static Key keys[] = {
         { MODKEY,                       XK_f,         spawn,          {.v = filescmd} },
         { MODKEY,                       XK_b,         spawn,          {.v = browsrcmd} },
         { MODKEY,                       XK_v,         spawn,          {.v = vimbcmd} },
+        { MODKEY,                       XK_n,         spawn,          {.v = nnncmd} },
 	{ MODKEY,                       XK_Escape,    spawn,          {.v = lockcmd} },
 
      /* Cambiar a disposiciones especificas */

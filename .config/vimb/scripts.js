@@ -1,3 +1,4 @@
+// bloquear la mayoria de anuncios de youtube
 function ytblock(nostyle, nolinks) {
     let main = new MutationObserver(() => {
             // Get skip button and click it
