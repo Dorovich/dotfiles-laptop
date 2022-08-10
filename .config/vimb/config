@@ -7,6 +7,7 @@
 
 #set home-page=about:blank
 set home-page=https://dorovich.github.io/e
+set x-hint-command=:sh! mpv <C-R>;<CR>
 
 # UI {{{
 set input-autohide=true
@@ -45,7 +46,7 @@ cmap <C-d> <Esc>
 cmap <C-c> <Esc>
 imap <C-d> <Esc>
 
-nmap <C-m> :sh! mpv $VIMB_URI<CR> 
+nmap <C-m> :sh! mpv $VIMB_URI<CR>
 nmap <C-t> Y:tabopen trad <C-r>"<CR>
 nmap <C-y> :sh! xdotool key ctrl+super+p<CR>
 #nmap <C-y> :sh vimb-pass $VIMB_URI<CR>
@@ -83,10 +84,9 @@ shortcut-add af=https://www3.animeflv.net/browse?q=$0
 # bookmarks: ~/.local/share/vimb/bookmark
 # }}}
 
-# Handlers and Editor {{{
+# External programs {{{
 handler-add magnet=xdg-open %s
 handler-add mailto=thunderbird %s
-
 set editor-command=st -e nvim %s
 # }}}
 
@@ -119,14 +119,14 @@ set spell-checking-languages=en,es_ES
 # }}}
 
 # Colors {{{
-set completion-css=color:#e0def4;background-color:#191724;font:12pt mononoki;
-set completion-hover-css=color:#e0def4;background-color:#26233a;font:12pt mononoki;
-set completion-selected-css=color:#191724;background-color:#eb6f92;font:12pt mononoki;
-set input-css=color:#e0def4;background-color:#191724;font:12pt mononoki;
-set input-error-css=color:#e0def4;background-color:#191724;font:12pt mononoki;
-set status-css=color:#6f6c7c;background-color:#191724;font:12pt mononoki;
-set status-ssl-css=color:#6e6a86;background-color:#191724;font:12pt mononoki;
-set status-ssl-invalid-css=color:#e0def4;background-color:#191724;font:12pt mononoki;
+set completion-css=           color:#e0def4;background-color:#191724;font:12pt mononoki;
+set completion-hover-css=     color:#e0def4;background-color:#26233a;font:12pt mononoki;
+set completion-selected-css=  color:#191724;background-color:#eb6f92;font:12pt mononoki;
+set input-css=                color:#e0def4;background-color:#191724;font:12pt mononoki;
+set input-error-css=          color:#e0def4;background-color:#191724;font:12pt mononoki;
+set status-css=               color:#6f6c7c;background-color:#191724;font:12pt mononoki;
+set status-ssl-css=           color:#6e6a86;background-color:#191724;font:12pt mononoki;
+set status-ssl-invalid-css=   color:#e0def4;background-color:#191724;font:12pt mononoki;
 # }}}
 
 # Autocommands {{{
