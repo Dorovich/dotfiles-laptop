@@ -19,7 +19,7 @@ set hidden
 set nobackup
 set nowritebackup
 set noswapfile
-set nowrap
+set wrap
 set clipboard=unnamedplus
 set hlsearch
 set incsearch
@@ -39,6 +39,7 @@ set title
 set cursorline
 set titlestring=%f\ %a\ %m titlelen=70
 set statusline=>\ %f
+set showbreak=>\ 
 syntax on
 filetype plugin on
 filetype plugin indent on
@@ -69,10 +70,12 @@ nnoremap <silent> <S-TAB> :bprevious<CR>
 nnoremap <silent> <C-c> :bdelete!<CR>
 xnoremap < <gv
 xnoremap > >gv
-nmap <silent> U <C-r>
+nnoremap <silent> U <C-r>
 nmap <S-y> y$
 map ; :
 map ñ :
+map Ñ :
+map Q gq
 nnoremap <Leader><Leader> za
 nnoremap <silent> <Leader>f :Lex %:p:h<CR>
 nnoremap <silent> <Leader>e :Lex %:p:h<CR>
@@ -87,9 +90,8 @@ nnoremap <silent> <M-l> :vertical resize +2<CR>
 nnoremap <Leader>pp bi(<Esc>ea)<Esc>
 nnoremap <Leader>ll bi{<Esc>ea}<Esc>
 nnoremap <Leader>cc bi[<Esc>ea]<Esc>
-nnoremap / /\v
-vnoremap / /\v
-nnoremap <Leader>h :noh<cr>
+nnoremap <silent> <Leader>h :noh<cr>
+nnoremap <C-r> :%s//<Left>
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -97,9 +99,10 @@ nnoremap <Leader>h :noh<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " (Espacio dos veces para desplegar) {{{
 function! MyHighlights() abort
-    "DT's
+    highlight clear CursorLine
+    "         object       effect       foreground   background
     highlight Normal       cterm=none   ctermfg=15   ctermbg=none
-    highlight VertSplit    cterm=none   ctermfg=0    ctermbg=8
+    highlight VertSplit    cterm=none   ctermfg=0    ctermbg=0
     highlight Statement    cterm=none   ctermfg=3    ctermbg=none
     highlight Directory    cterm=none   ctermfg=4    ctermbg=none
     highlight Constant     cterm=none   ctermfg=3    ctermbg=none
@@ -109,25 +112,27 @@ function! MyHighlights() abort
     highlight String       cterm=none   ctermfg=12   ctermbg=none
     highlight Number       cterm=none   ctermfg=1    ctermbg=none
     highlight Function     cterm=none   ctermfg=1    ctermbg=none
-    highlight Visual       cterm=none   ctermfg=none ctermbg=0
+    highlight Visual       cterm=none   ctermfg=none ctermbg=236
     highlight Character    cterm=none   ctermfg=12   ctermbg=none
-
-    "PERSONAL
-    highlight clear CursorLine
     highlight ModeMsg      cterm=none   ctermfg=6    ctermbg=none
     highlight LineNr       cterm=none   ctermfg=8    ctermbg=none
     highlight CursorLine   cterm=none   ctermfg=none ctermbg=0
-    highlight CursorLineNr cterm=bold   ctermfg=6    ctermbg=0
+    highlight CursorLineNr cterm=bold   ctermfg=1    ctermbg=0
     highlight NonText      cterm=none   ctermfg=0    ctermbg=none
-    highlight Comment      cterm=italic ctermfg=8    ctermbg=none
+    highlight Comment      cterm=none   ctermfg=8    ctermbg=none
     highlight StatusLine   cterm=none   ctermfg=none ctermbg=none
     highlight StatusLineNC cterm=none   ctermfg=none ctermbg=none
-    highlight MatchParen   cterm=none   ctermfg=none ctermbg=8
-    highlight Folded       cterm=italic,bold ctermfg=8 ctermbg=none
+    highlight MatchParen   cterm=none   ctermfg=none ctermbg=238
+    highlight Folded       cterm=italic ctermfg=8    ctermbg=none
     highlight SignColumn   cterm=none   ctermfg=none ctermbg=none
+    highlight Pmenu        cterm=none   ctermfg=7    ctermbg=0
+    highlight PmenuSel     cterm=none   ctermfg=0    ctermbg=1
+    highlight PmenuSbar    cterm=none   ctermfg=none ctermbg=0
+    highlight PmenuThumb   cterm=none   ctermfg=none ctermbg=8
     highlight Todo         cterm=bold   ctermfg=0    ctermbg=2
     highlight Error        cterm=bold   ctermfg=0    ctermbg=1
     highlight ErrorMsg     cterm=bold   ctermfg=0    ctermbg=1
+    highlight MsgArea      cterm=italic ctermfg=7    ctermbg=none
 endfunction
 
 augroup MyColors

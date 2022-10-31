@@ -5,8 +5,7 @@
 #
 # https://fanglingsu.github.io/vimb/man.html
 
-#set home-page=https://dorovich.github.io/e
-set home-page=about:blank
+set home-page=https://dorovich.github.io/g
 
 # UI {{{
 set input-autohide=true
@@ -29,15 +28,15 @@ nmap J <C-d>
 nmap K <C-u>
 nmap <C-j> <C-f>
 nmap <C-k> <C-b>
+#nmap <C-j> :sh! xdotool key Page_Down<CR>
+#nmap <C-k> :sh! xdotool key Page_Up<CR>
 nmap H <C-o>
 nmap L <C-i>
 nmap M '
 nmap ñ :
+nmap Ñ :
 nmap d :quit<CR>
 nmap D :quit!<CR>
-#nnoremap q :quit<CR>
-#nnoremap Q :quit!<CR>
-#nnoremap q :sh! killall vimb<CR>
 nmap b :open !
 nmap B :tabopen !
 nmap c <Esc>
@@ -46,6 +45,7 @@ cmap <C-d> <Esc>
 cmap <C-c> <Esc>
 imap <C-d> <Esc>
 
+nmap <C-s> :set scripts!|no r<CR>
 nmap <C-m> :sh! mpv $VIMB_URI<CR>
 nmap <C-t> Y:tabopen trad <C-r>"<CR>
 #nmap <C-y> :sh vimb-pass $VIMB_URI<CR>
@@ -57,29 +57,33 @@ nnoremap xu :sh! ~/.local/bin/vimb-adblock-update<CR>
 # }}}
 
 # Shortcuts {{{
-shortcut-default ddl
+shortcut-default sxngprefs
 
-shortcut-add ddg=https://duckduckgo.com/?q=$0
-shortcut-add ddl=https://lite.duckduckgo.com/lite/?q=$0
-shortcut-add ggl=https://encrypted.google.com/search?q=$0
+shortcut-add dd=https://duckduckgo.com/?q=$0
+shortcut-add gg=https://encrypted.google.com/search?q=$0&pccc=1
 shortcut-add sx=https://searx.tiekoetter.com/search?q=$0
-shortcut-add yt=https://www.youtube.com/results?search_query=$0
-shortcut-add aw=https://wiki.archlinux.org/?search=$0
-shortcut-add rd=https://www.reddit.com/r/$0
-shortcut-add gh=https://github.com/search?q=$0
-shortcut-add ghd=https://github.com/$0/$1
-shortcut-add wa=https://www.wolframalpha.com/input/?i=$0
-shortcut-add trad=https://translate.tiekoetter.com/?engine=google&text=$0&sl=auto&tl=en
-#shortcut-add trad=https://translate.google.com/?hl=es&sl=auto&tl=es&text=$0&op=translate
+shortcut-add sxng=https://searx.be/?q=$0
 shortcut-add map=https://www.openstreetmap.org/search?query=$0
-#shortcut-add map=https://maps.google.com/maps?saddr=$0&daddr=$1
-shortcut-add wiki=https://wikiless.tiekoetter.com/w/index.php?search=$0
-#shortcut-add wiki=https://es.wikipedia.org/wiki/$0
-shortcut-add img=https://duckduckgo.com/?q=$0&t=h_&iax=images&ia=images
-shortcut-add inv=https://yewtu.be/search?q=$0
-shortcut-add fc=https://4chan.org/$0/
-shortcut-add ny=https://nyaa.si/?q=$0
+shortcut-add gmap=https://maps.google.com/maps?saddr=$0&daddr=$1
+shortcut-add wiki=https://es.wikipedia.org/wiki/$0
+shortcut-add trad=https://farside.link/lingva/auto/$0/$1
+shortcut-add gtrad=https://translate.google.com/?hl=en&sl=auto&tl=$0utext=$1&op=translate
+shortcut-add gh=https://github.com/$0/$1
+shortcut-add ghs=https://github.com/search?q=$0&ref=simplesearch
+shortcut-add aw=https://wiki.archlinux.org/?search=$0
+shortcut-add wa=https://www.wolframalpha.com/input/?i=$0
+shortcut-add fc=https://boards.4channel.org/$0/catalog
+shortcut-add lol=https://euw.op.gg/champions/$0
+shortcut-add scp=https://scp-wiki.wikidot.com/scp-$0
 shortcut-add af=https://www3.animeflv.net/browse?q=$0
+shortcut-add yt=https://www.youtube.com/results?search_query=$0
+shortcut-add rd=https://www.reddit.com/r/$0
+shortcut-add iv=https://farside.link/invidious/$0
+shortcut-add nt=https://farside.link/nitter/$0
+shortcut-add td=https://farside.link/teddit/r/$0
+
+shortcut-add sxngprefs=https://searx.be/?preferences=eJx1V8uSrDYM_ZqwoWYqN3eRyqJXqco2qcrdU8JWgwbb4vrRNPP1kYFuTDNZDDOWjDh6HWkUROzYE4ZLhw49mMqA6xJ0eEFXGVZglr8gRVZsR4MRLxVZudCMnu_z5YdPWFmMPevLP3__-6MKcMWA4FV_-bWKPVq8cFDgK48hmRgado3DqYnQXv4CE7DSTI0o2dzQXxjk-M6-q5a33kKcBYLhjhRrvL1p8EMVKENpVl3GVil0EX0Dhjorf26WQd_AKdTNBmiV_kzo54ZcEynK-4sH5K7kKIpN5dmYBzIK0Bp5H11HTqL0Rwdd0wRWBKa2qAl--e1PGIfakvfsm-ZKBsMiE4C1POsQ2WOhEBx0w5pC02wxX6SRVNMsgc23WnJdqc_netW-3KpvpJFFuv5epLFNasAoN6OclVJv8VZc4BGdhDpgYUq8DsHjVZxThBIzkc04lhhU8oawlGjETwl6Y1Mglc-6qzUugSR2BwfR80S6aVgqwst5ooE0RDiYE9T5p-N6QsgX9_trPC2MYlWe2aLlDxpzCvZb3-6FS1dDavClwCPWga9xAo-1Jo9KcjNvYbp6cgNBmYWOOkk_hFii7KRooH3EVmqyRd9tx465E5inlGzy0cCcayLs5VBqLN8ID6-NrHUZ4B5aD_mxfY-sbnfvyUHx8geFnnflIMGAUHzZkNjyc509C1QoPt821fkuX2vFrpNmLcvQcBsivvuwoYJPM3tSYcftEG-HVLvRbpdzMXocuQAwgkDtKDwKeEztu7T-dvo5gTskZBGcm2MVn1IRcCRY6eAgzYKczTo_niUBFrLvD0FAK0ZJ1UH1bMCX3RKiNPGYibHAFnmYObJkYgC3e5hckIyHvoA7Q89cvjpziqnFAuRT8uw3IDNbzs1WXLuRRS7OE7VzadiCFzITvw4ZEaK_g9P-KM1t2jIP4VUoDC6y_NwEPxNHfL0VOHl1kmbuoTifxDy_RE-Tip_sjrKk0e1lHfDTgT24xx-Iw6HY4JabaBf41M4d2ke9joj-JdQLtcsnBunIacK2UPlkZSSU8eU7DeykROswO3azxQLfx_g-Tu5IfFYY8sDuXhCWghFjnj9rkX4pPtd7qTxkRwp47801I31aeqtCdxxvy8uGXLrXGeejn_2dbmWpt1IoCuy4V2K-vXHxy9A6QGmjpq7b-0BGiheb83Go3EiaTJqpcE6zDDRf9-lBvPus-J8JcopPFA_nQ5QxSvM4cbfI11V7znPqyc_oKBVMJueY-3Sle4o7opXJD5Ni5fYTkk1-iMwm-4JX-s3uSvhOyo44lYxWyB4oxafuSLiW7spw0gUnzwC7n8JrA6EvSBlkPuYJHVB2tgLPQyesLAMWtkl_1IcoozbKnH4M61Hn9tovjb2wontqycsi2kIxccS69ODhlXmkcgQc4ydYNcXTaiblLqV6dFyIWg0slHA1PD1KPAypTS6mR5ukEX0Kz4DIckpalgWp1lhMqjhRzGvn62cXMq9fOTKHahmrTy5gs46YsS-WGCsEYmUvqaMHF4xEptibvn3__vt9BzCx146GwmSM_p0efLMvsKNJ0uLhkgni_r6d3hmadfmevOy-2xzc1QHNVfbkK580EopG9aiGk0amTyPJHXAOT3r5-uN9HoDr4WSl5xCF11GgyaBUX0FbyFFqSK3_w8yy4xtZ6M5QPWTuaGR7FWs2J76SsSxFevkPwnfpig==&q=$0
+shortcut-add sxprefs=https://searx.tiekoetter.com/?preferences=eJx1V81y4zYMfpr6oomn2z10evCps90H6N41EAlLiEhC4Y9k5ekLSrJF2ekhSgiAJAh8-IAoiNiyJwyXFh16MCcDrk3Q4gXD249_T4YVGFm4E6TIiu1gMOKlZW4NnsiKZT14vs2XXz7hyWLsWF9-_vh1CnDFgOBVd_n9FDu0eAmUt588hmRiqNnVDqc6QnP5B0zAk2aqRclmRH9hkOWZfXtat9UhzuJJduOk0EX0NRhqnZW_t_2gR3AKdb3du0o_Evq5JldHinLA4ie5KzmKcqjybMz9fgrQGNmPriUnQfmrhbauAysCU1nUBL_98TcMfWXJe_Z1fSWDYZGJh5V8qxDZY6EQP2jEikJdbyFepJFUXS_hW61uNMpFilD8F0FDri035HW1mhfbFulIGlmk6-9FGpukeoxiGWWtlHqLY2HAAzqJcMDiKAlDCB6vpRMzDqUPKnlDWEo04qekobYpkMpr3VYal8gSu8OLNYtHvupSs3mFnifSdc0CDS_riXrSEOGwSZ6Rf1quJoRsuNuvEbcwyDXyzSdafqchJ2m3ipLG-eAzxtmyMyLfrb7dikhcDanelwKPWAW-xgk8Vpo8KsnxvL3j6sn1BGU25TJKYQ9LS63ACkIs_WgFjHAPhmKNDfp2W67V9ZrZTT4YmDPWwg6zUmN5JDxsG1jrMk8dNB7yZ7uvW3ZvC7K62UNDDoqT3il0vCt7iRSEwg1DcrCfq_zMQIXi821TvdrytVLsWqn7EtqGmxDx7MPmFXya2ZMqomrppgwnvUsc4njAjxvstt2CJAnv780FAJLHjLeAwkQF6O-6ITUCBNiAfNSLlovHDSBhaCncC27QDZZbho6jcN0GUzn4rHG826ZGeOVgPQ-0KT8mcAfQLIJXHljFL3AJOBCsVFhIIfSpSS6m7ZKQBvQpPIKzbsiIrPLnAXOwkFOGDzOJqbBYFVTHBnz5hBCF4IbcGgrfI_ezxEEA1IPbgydsT1rqyQuNFzEVSfaaXY6_rJMLAu7QFa-eQXBb3rAIKmkpck7-ZhGnmHI2Hs9_SB6kBWSEEnKiC7ORLHKxnqiZy7sseGkREpED4KRV3sBpf5RmamuY-_AsPLiaBR-JIz5bBU5ePUuzu0s5lfyZSZ3i_HzAyPNTLjSp-MnuILOzFQaVgoweXDAyGRTsrJNGty8Dfjqwh938jtgfig_GjKld4FMzt2jvFT0g-qfcLB1WruiFwKYJm0Llk21MaTux1476IgB8o56d1FYVZsdOnlM4_D6ch8kdw2WlUR2arBeXS8GAMc8FawF9KX6txVJ5yK8Uz05na067tFDGSRjnMHZAZ5cmdgf_cpi0rHSrst_bGY0gTYEddihn5dYAn0aHgydN1NS2e61JY5fqU_OxtY8k9S11XLxt78f_06VfonHVnnOXf_QpqfJctGubo7jPA-3Wg4oOufa0lzM3-eFJm-wLLiInkCFOJTEWsnvoJLrtU_OYAXbHM-2HKJNAFBZ_UDl5KZMGiq62UvHBN-kzmuLLGCkQkPwdO5gQp-pZ6uZqeLpDZRBuus67UZwo5un3-cCJzcrSQ1dMQN--f__ztvs3xejPdC-EfeIdTBLshUtG7u28rc4M9TqTT16G5a057GohyVp6W49zeGD464O6TN3r4uWUjkMUNkG5RihevV5jpFLjxjulfKtM4W21_h8zy-BvZDr7wtJc5T-AK79opM_UqkPVv2o85JG1lqlXPLM5KyfpYQKDy39R-P57&q=$0
 
 # bookmarks: ~/.local/share/vimb/bookmark
 # }}}
@@ -95,6 +99,7 @@ set download-path=~/Descargas/
 set images=true
 set scripts=true
 set webgl=true
+set cookie-accept=origin
 set geolocation=never
 set user-scripts=true
 set accelerated-2d-canvas=ondemand
@@ -131,8 +136,8 @@ set status-ssl-invalid-css=   color:#e0def4;background-color:#191724;font:12pt m
 
 # Autocommands {{{
 aug Downloads
-    au DownloadFinished * sh notify-send 'Download finished!'
-    au DownloadFailed * sh notify-send 'Could not download files.'
+    au DownloadFinished * sh notify-send --urgency=normal 'Download finished!'
+    au DownloadFailed * sh notify-send --urgency=normal 'Could not download files.'
 aug end
 
 aug Styles
@@ -142,44 +147,55 @@ aug Styles
     au LoadCommitted http{s,}://fanglingsu.github.io/* set stylesheet=true
     au LoadCommitted http{s,}://*.wikipedia.org/* set stylesheet=true
     au LoadCommitted http{s,}://sm-idk.me/* set stylesheet=true
+    au LoadCommitted http{s,}://envs.net/~smidk/* set stylesheet=true
+    au LoadCommitted http{s,}://farside.link/* set stylesheet=true
 aug end
 
 aug YtBlock
     au LoadFinished http{s,}://www.youtube.com/watch?v=* e! ytblock();
 aug end
 
-aug Cookies
-    au LoadCommitted * set cookie-accept=never
-    au LoadCommitted http{s,}://atenea.upc.edu/* set cookie-accept=origin
-    au LoadCommitted http{s,}://raco.fib.upc.edu/* set cookie-accept=origin
-    au LoadCommitted http{s,}://discos.fib.upc.edu/* set cookie-accept=origin
-    au LoadCommitted http{s,}://jutge.org/* set cookie-accept=origin
-    au LoadCommitted http{s,}://github.com/* set cookie-accept=origin
-    au LoadCommitted http{s,}://itch.io/* set cookie-accept=origin
-    au LoadCommitted http{s,}://google.com/* set cookie-accept=origin
-    au LoadCommitted http{s,}://accounts.google.com/* set cookie-accept=origin
-    au LoadCommitted http{s,}://www.youtube.com/* set cookie-accept=origin
-    au LoadCommitted http{s,}://soundcloud.com/* set cookie-accept=origin
-    au LoadCommitted http{s,}://duckduckgo.com/* set cookie-accept=origin
-    au LoadCommitted http{s,}://www.reddit.com/* set cookie-accept=origin
-    au LoadCommitted http{s,}://voidlinux.org/* set cookie-accept=origin
-    au LoadCommitted http{s,}://discord.com/* set cookie-accept=origin
-    au LoadCommitted http{s,}://*.wikipedia.org/* set cookie-accept=origin
-    au LoadCommitted http{s,}://yewtu.be/* set cookie-accept=origin
-    au LoadCommitted http{s,}://mega.nz/* set cookie-accept=origin
-    au LoadCommitted http{s,}://store.steampowered.com/* set cookie-accept=origin
-    au LoadCommitted http{s,}://steamcommunity.com/* set cookie-accept=origin
-    au LoadCommitted http{s,}://mangadex.org/* set cookie-accept=origin
-    au LoadCommitted http{s,}://www.twitch.tv/* set cookie-accept=origin
-    au LoadCommitted http{s,}://es.wallapop.com/* set cookie-accept=origin
-    au LoadCommitted http{s,}://5e.tools/* set cookie-accept=origin
-    au LoadCommitted http{s,}://www3.animeflv.net/* set cookie-accept=origin
-    au LoadCommitted http{s,}://www.epicgames.com/* set cookie-accept=origin
-    au LoadCommitted http{s,}://element.envs.net/* set cookie-accept=origin
-    au LoadCommitted http{s,}://bandcamp.com/* set cookie-accept=origin
-    au LoadCommitted http{s,}://www.pixiv.net/* set cookie-accept=origin
-    au LoadCommitted http{s,}://accounts.pixiv.net/* set cookie-accept=origin
-    au LoadCommitted http{s,}://roll20.net/* set cookie-accept=origin
-    au LoadCommitted http{s,}://app.roll20.net/* set cookie-accept=origin
+aug SearxEsc
+    au LoadFinished https://searx.be/search?q=* no <Esc>
 aug end
+
+# Cookies {{{
+#aug Cookies
+#    au LoadCommitted * set cookie-accept=never
+#    au LoadCommitted http{s,}://sso.upc.edu/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://atenea.upc.edu/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://raco.fib.upc.edu/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://discos.fib.upc.edu/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://jutge.org/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://github.com/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://itch.io/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://www.google.com/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://accounts.google.com/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://www.youtube.com/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://soundcloud.com/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://duckduckgo.com/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://www.reddit.com/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://voidlinux.org/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://discord.com/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://*.wikipedia.org/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://yewtu.be/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://mega.nz/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://store.steampowered.com/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://steamcommunity.com/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://mangadex.org/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://www.twitch.tv/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://es.wallapop.com/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://www3.animeflv.net/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://www.epicgames.com/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://element.envs.net/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://bandcamp.com/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://www.pixiv.net/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://accounts.pixiv.net/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://roll20.net/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://app.roll20.net/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://4chan.org/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://boards.4channel.org/* set cookie-accept=origin
+#    au LoadCommitted http{s,}://searx.be/* set cookie-accept=origin
+#aug end
+# }}}
 # }}}

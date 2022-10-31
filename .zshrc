@@ -98,4 +98,4 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PS1="
 %B%F{red}%1~%f%b "
 
-fortune | cowsay
+#fortune | cowsay
