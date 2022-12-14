@@ -55,6 +55,7 @@ autocmd CursorMoved * echon ''
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " (Espacio dos veces para desplegar) {{{
 let g:mapleader = ' '
+let g:localleader = ','
 nnoremap <silent> <C-s> :w!<CR>
 nnoremap <silent> <C-q> :q<CR>
 nnoremap <silent> <Leader>w :w!<CR>
@@ -141,4 +142,26 @@ augroup MyColors
 augroup END
 
 colorscheme pablo
+" }}}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""             CONFIGS PLUGINS             """""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" (Espacio dos veces para desplegar) {{{
+" Instalar vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Lista de plugins
+call plug#begin()
+
+Plug 'tpope/vim-surround'                           " Cierra parentesis automaticamente
+Plug 'mg979/vim-visual-multi', {'branch': 'master'} " Editar multiples instancias
+Plug 'bfrg/vim-cpp-modern'                          " Mejores colores para C/C++
+Plug 'jceb/vim-orgmode'                             " Emulacion de Org-mode
+ 
+call plug#end()
 " }}}

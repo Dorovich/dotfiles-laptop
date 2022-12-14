@@ -30,13 +30,13 @@ nmap <C-j> <C-f>
 nmap <C-k> <C-b>
 #nmap <C-j> :sh! xdotool key Page_Down<CR>
 #nmap <C-k> :sh! xdotool key Page_Up<CR>
-nmap H <C-o>
-nmap L <C-i>
+#nmap H <C-o>
+#nmap L <C-i>
 nmap M '
 nmap ñ :
 nmap Ñ :
-nmap d :quit<CR>
-nmap D :quit!<CR>
+#nmap d :quit<CR>
+#nmap D :quit!<CR>
 nmap b :open !
 nmap B :tabopen !
 nmap c <Esc>
@@ -46,18 +46,18 @@ cmap <C-c> <Esc>
 imap <C-d> <Esc>
 
 nmap <C-s> :set scripts!|no r<CR>
-nmap <C-m> :sh! mpv $VIMB_URI<CR>
+nmap <C-m> :sh! mpv $VIMB_URI<CR> 
 nmap <C-t> Y:tabopen trad <C-r>"<CR>
-#nmap <C-y> :sh vimb-pass $VIMB_URI<CR>
+#nnoremap <C-y> :sh vimb-pass $VIMB_URI<CR>
 nmap gc :sh! st -e nvim ~/.config/vimb/config<CR>
-nmap gd :sh! st -e zsh -ilc 'nnn ~/Descargas'<CR>
+nmap gd :sh! st -e bash -ilc 'nnn ~/Descargas'<CR>
 nnoremap xc :sh! ~/.local/bin/vimb-clear-history<CR>
 nnoremap xu :sh! ~/.local/bin/vimb-adblock-update<CR>
 #nnoremap xb :e! ytblock();<CR>
 # }}}
 
 # Shortcuts {{{
-shortcut-default sxngprefs
+shortcut-default dd
 
 shortcut-add dd=https://duckduckgo.com/?q=$0
 shortcut-add gg=https://encrypted.google.com/search?q=$0&pccc=1
@@ -107,6 +107,8 @@ set history-max-items=50
 set webinspector=true
 set header=DNT=1,User-Agent,Cookie='name=value'
 set user-agent=Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+set html5-database=true
+set html5-local-storage=true
 # }}}
 
 # Fonts {{{
@@ -157,6 +159,7 @@ aug end
 
 aug SearxEsc
     au LoadFinished https://searx.be/search?q=* no <Esc>
+    au LoadFinished https://searx.be/search no <Esc>
 aug end
 
 # Cookies {{{

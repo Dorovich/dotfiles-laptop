@@ -87,6 +87,7 @@ static const char *nnncmd[]    = { "st", "-e", "zsh", "-ilc", "nnn", NULL };
 static const char *browsrcmd[] = { "firefox", NULL };
 static const char *vimbcmd[]   = { "tabbed", "-c", "vimb", "-e", NULL };
 static const char *lockcmd[]   = { "slock", NULL };
+static const char *emacscmd[]  = { "emacsclient", "-c", NULL };
 
 static Key keys[] = {
 	/* modifier                     key           function        argument */
