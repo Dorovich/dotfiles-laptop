@@ -5,11 +5,10 @@ static int topbar = 1;                      /* -b  option; if 0, dmenu appears a
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
 	"mononoki:size=11"
-        //"mononoki:pixelsize=13"
 };
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
-	/*     fg         bg       */
+	          /*     fg         bg       */
 	[SchemeNorm] = { "#e0def4", "#191724" },
 	[SchemeSel]  = { "#191724", "#eb6f92" },
 	[SchemeOut]  = { "#000000", "#00ffff" },
