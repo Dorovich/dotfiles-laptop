@@ -117,6 +117,7 @@ config.bind('c', 'download-clear;; clear-messages')
 #config.bind('jk', 'mode-leave', 'command')
 config.bind('<Ctrl-c>', 'mode-leave', 'command')
 config.bind('gh', 'home')
+config.bind('gc', 'config-edit')
 config.bind('xb', 'config-cycle statusbar.show never in-mode')
 config.bind('xt', 'config-cycle tabs.show multiple switching')
 config.bind('<Ctrl-j>', 'tab-move +')
@@ -215,7 +216,7 @@ c.content.blocking.hosts.lists = [ \
 # }}}
 
 # Fonts {{{
-monospace = "14px 'mononoki'"
+monospace = "15px 'mononoki'"
 c.fonts.hints = f"bold {monospace}"
 c.fonts.default_family = monospace
 c.fonts.completion.category = f"bold {monospace}"

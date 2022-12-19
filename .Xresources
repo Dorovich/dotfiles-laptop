@@ -1,4 +1,4 @@
-*.font:     mononoki:pixelsize=16:antialias=true:autohint=true
+*.font:     mononoki NF:pixelsize=16:antialias=true:autohint=true
 *.alpha:    0.96
 
 *.background:   #191724
