@@ -1,8 +1,6 @@
 #!/bin/bash
 
 alias cl="clear"
-alias rm="rm -I"
-alias mv="mv -i"
 alias ls="ls -F --color"
 alias la="ls -FA --color"
 alias vim="nvim"
@@ -12,13 +10,25 @@ alias mp="ncmpcpp"
 alias clean="bleachbit -c --preset"
 alias fullclean="clean && sudo bleachbit -c --preset"
 
-alias aptup="sudo apt update && sudo apt upgrade"
-alias aptupd="sudo apt update"
-alias aptupg="sudo apt upgrade"
-alias aptin="sudo apt install"
-alias aptrm="sudo apt remove"
-alias aptar="sudo apt autoremove"
+# config tableta wacom
+alias wacom-osu='xsetwacom --set "Wacom Intuos PT S 2 Pen stylus" Area 5167 3167 9133 6333'
+alias wacom-reset='xsetwacom --set "Wacom Intuos PT S 2 Pen stylus" ResetArea'
 
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+0file() { curl -F"file=@$1" https://envs.sh ; }
+0pb() { curl -F"file=@-;" https://envs.sh ; }
+0url() { curl -F"url=$1" https://envs.sh ; }
+0short() { curl -F"shorten=$1" https://envs.sh ; }
+
+# UNI {{{
+# compilador de C++ para PRO1:
+alias p1++="g++ -ansi -O2 -DNDEBUG -D_GLIBCXX_DEBUG -Wall -Wextra -Werror -Wno-sign-compare -Wshadow"
+# compilador de C++ para PRO2:
+alias p2++="g++ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-sign-compare -std=c++11"
+# }}}
+
+# CONFIG {{{
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 alias configa="config add"
 alias configd="config diff"
@@ -31,19 +41,39 @@ alias configl='config log --pretty=format:"%C(magenta)%h%Creset -%C(red)%d%Crese
 configc() {
     config commit -a -m "$*"
 }
+# }}}
 
-# compilador de C++ para PRO1:
-alias p1++="g++ -ansi -O2 -DNDEBUG -D_GLIBCXX_DEBUG -Wall -Wextra -Werror -Wno-sign-compare -Wshadow"
-# compilador de C++ para PRO2:
-alias p2++="g++ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-sign-compare -std=c++11"
+# GIT {{{
+alias ga="git add"
+alias gd="git diff"
+alias gs="git status"
+alias gp="git push"
+alias gcl="git clone"
+alias gpl="git pull"
+alias gr="git rm -r"
+alias grs="git reset --hard HEAD"
+alias gl='git log --pretty=format:"%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]" --abbrev-commit -30'
 
-# config tableta wacom
-alias wacom-osu='xsetwacom --set "Wacom Intuos PT S 2 Pen stylus" Area 5167 3167 9133 6333'
-alias wacom-reset='xsetwacom --set "Wacom Intuos PT S 2 Pen stylus" ResetArea'
+gc() {
+    git commit -a -m "$*"
+}
 
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+gitstart() {
+    echo '1. git init'
+    echo '2. git remote add origin <link>'
+    echo '3. git branch -M main'
+    echo '4. git add <archivos>'
+    echo '5. git commit -a -m "mensaje"'
+    echo '6. git push -u origin main'
+    echo 'recordar contraseña: git config credential.helper store'
+}
+# }}}
 
-0file() { curl -F"file=@$1" https://envs.sh ; }
-0pb() { curl -F"file=@-;" https://envs.sh ; }
-0url() { curl -F"url=$1" https://envs.sh ; }
-0short() { curl -F"shorten=$1" https://envs.sh ; }
+# APT {{{
+alias aptup="sudo apt update && sudo apt upgrade"
+alias aptupd="sudo apt update"
+alias aptupg="sudo apt upgrade"
+alias aptin="sudo apt install"
+alias aptrm="sudo apt remove"
+alias aptar="sudo apt autoremove"
+# }}}

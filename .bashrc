@@ -3,10 +3,7 @@
 # for examples
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+[[ $- != *i* ]] && return
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -23,6 +20,9 @@ shopt -s checkwinsize
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
+
+# ignore upper and lowercase when TAB completion
+set completion-ignore-case on
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -42,6 +42,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# VIMB CONFIG
+export JavaScriptCoreUseJIT="0"
+export WEBKIT_DISABLE_COMPOSITING_MODE=1
 
 # NNN CONFIG
 export NNN_PLUG='d:dragdrop;i:imgur;n:nuke;p:preview-tabbed'
