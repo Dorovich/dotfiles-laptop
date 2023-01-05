@@ -1,10 +1,13 @@
 #!/bin/sh
 
-confirmation=$(echo "NO\nYES" | dmenu -i -p "Do you really want to quit?")
+confirmation=$(echo "No\nLogout\nShutdown" | dmenu -i -p "Do you want to quit?")
 
 case $confirmation in
-    "YES")
+    "Logout")
         herbstclient quit
+        ;;
+    "Shutdown")
+        shutdown -h now
         ;;
     *)
         exit
