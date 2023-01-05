@@ -75,7 +75,6 @@ done
 if hc silent new_attr bool my_not_first_autostart ; then
     setxbmap es &
     xset r rate 300 35 &
-    nitrogen --restore &
     mpd &
     redshift -l 41.39:2.16 -m randr -t 6200:5700 &
     setup-touchpad &

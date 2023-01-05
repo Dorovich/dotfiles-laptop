@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
-mpd_script="${HOME}/.config/herbstluftwm/scripts/mpd.sh"
+dir="${HOME}/.config/herbstluftwm/scripts/"
 
 while true; do
     mpc status | grep "playing" 2> /dev/null
     if [ $? -eq 0 ]; then
-        choice=$(echo -e "pause\njump\nartist\nalbum\ntrack\nload\nclear\nupdate\ntoggle" | dmenu -p "[>] $(mpc current -f "%title%")")
+        choice=$(echo "pause\njump\nartist\nalbum\ntrack\nload\nclear\nupdate\ntoggle" | dmenu -p "[>] $(mpc current -f "%title%")")
     else
-        choice=$(echo -e "play\njump\nartist\nalbum\ntrack\nload\nclear\nupdate\ntoggle" | dmenu -p "[-] $(mpc current -f "%title%")")
+        choice=$(echo "play\njump\nartist\nalbum\ntrack\nload\nclear\nupdate\ntoggle" | dmenu -p "[-] $(mpc current -f "%title%")")
     fi
 
     case $choice in
@@ -18,19 +18,19 @@ while true; do
             mpc pause
             ;;
         jump)
-            $mpd_script -j
+            $dir/mpd.sh -j
             ;;
         artist)
-            $mpd_script -a
+            $dir/mpd.sh -a
             ;;
         album)
-            $mpd_script -l
+            $dir/mpd.sh -l
             ;;
         track)
-            $mpd_script -t
+            $dir/mpd.sh -t
             ;;
         load)
-            $mpd_script -p
+            $dir/mpd.sh -p
             ;;
         clear)
             mpc clear
@@ -46,7 +46,7 @@ while true; do
             mpc status | grep "repeat: on" 2> /dev/null
             if [ $? -eq 0 ]; then repeat="@"; else repeat="-"; fi
 
-            option=$(echo -e "random\nconsume\nrepeat" | dmenu -p "[$random$consume$repeat]")
+            option=$(echo "random\nconsume\nrepeat" | dmenu -p "[$random$consume$repeat]")
 
             case $option in
                 random)
