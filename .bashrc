@@ -63,3 +63,5 @@ color2=$(tput setaf 8)
 bold=$(tput bold)
 reset=$(tput sgr0)
 export PS1="\n\[$bold$color1\]\W \[$bold$color2\];\[$reset\] "
+
+echo "$color2¡Pulsa Super+F1 para ver las combinaciones de teclas!$reset"
