@@ -18,19 +18,19 @@ while true; do
             mpc pause
             ;;
         jump)
-            $dir/mpd.sh -j
+            $dir/mpdctl.sh -j
             ;;
         artist)
-            $dir/mpd.sh -a
+            $dir/mpdctl.sh -a
             ;;
         album)
-            $dir/mpd.sh -l
+            $dir/mpdctl.sh -l
             ;;
         track)
-            $dir/mpd.sh -t
+            $dir/mpdctl.sh -t
             ;;
         load)
-            $dir/mpd.sh -p
+            $dir/mpdctl.sh -p
             ;;
         clear)
             mpc clear

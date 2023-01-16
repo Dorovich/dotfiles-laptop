@@ -18,13 +18,15 @@ x=${geometry[0]}
 y=${geometry[1]}
 panel_width=${geometry[2]}
 panel_height=16
-font="-*-fixed-bold-r-*-*-13-*-*-*-*-*-*-*"
+#font="-*-clean-medium-*-*-*-12-*-*-*-*-*-*-*"
+#font="-*-clearlyu-medium-*-*-*-*-*-*-*-*-*-*-*"
+font="-*-courier 10 pitch-bold-i-*-*-*-*-*-*-*-*-*-*"
 # extract colors from hlwm and omit alpha-value
 #bgcolor=$(hc get frame_border_normal_color|sed 's,^\(\#[0-9a-f]\{6\}\)[0-9a-f]\{2\}$,\1,')
 #selbg=$(hc get window_border_active_color|sed 's,^\(\#[0-9a-f]\{6\}\)[0-9a-f]\{2\}$,\1,')
-bgcolor='#191724'
-selbg='#EB6F92'
-selfg='#191724'
+bgcolor='#151515'
+selbg='#D19A66'
+selfg='#151515'
 
 ####
 # Try to find textwidth binary.
@@ -77,8 +79,6 @@ hc pad $monitor $panel_height
         # "date" output is checked once a second, but an event is only
         # generated if the output changed compared to the previous run.
         date +$'date\t^fg(#efefef)%H:%M^fg(#909090), ^fg(#efefef)%d^fg(#909090)/%m/%Y'
-        # a ver si esto cuela para que salga la bateria
-        #charge +$'cat\t^fg(#efefef)/sys/class/power_supply/BAT0/capacity; ^fg(#909090)echo "%"'
         sleep 1 || break
     done > >(uniq_linebuffered) &
     childpid=$!
@@ -88,7 +88,6 @@ hc pad $monitor $panel_height
     IFS=$'\t' read -ra tags <<< "$(hc tag_status $monitor)"
     visible=true
     date=""
-    charge=""
     windowtitle=""
     while true ; do
 
@@ -128,7 +127,7 @@ hc pad $monitor $panel_height
         echo -n "$separator"
         echo -n "^bg()^fg() ${windowtitle//^/^^}"
         # small adjustments
-        right="$separator^bg() $date, ^fg(#efefef)$(cat /sys/class/power_supply/BAT0/capacity)% $separator"
+        right="$separator^bg() $date $separator"
         right_text_only=$(echo -n "$right" | sed 's.\^[^(]*([^)]*)..g')
         # get width of right aligned text.. and add some space..
         width=$($textwidth "$font" "$right_text_only    ")
@@ -154,10 +153,6 @@ hc pad $monitor $panel_height
             date)
                 #echo "resetting date" >&2
                 date="${cmd[@]:1}"
-                ;;
-            charge)
-                #echo "resetting charge" >&2
-                charge="${cmd[@]:1}"
                 ;;
             quit_panel)
                 exit
